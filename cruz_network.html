@@ -21,7 +21,7 @@ text {
 <body>
 <script>
 // get the data
-d3.csv("force_cru.csv", function(error, links) {
+d3.csv("force_cruz.csv", function(error, links) {
 var nodes = {};
 // Compute the distinct nodes from the links.
 links.forEach(function(link) {
@@ -33,6 +33,7 @@ links.forEach(function(link) {
 });
 var width = 5000,
     height = 5000;
+
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
