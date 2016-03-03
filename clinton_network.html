@@ -3,7 +3,41 @@
 <meta charset="utf-8">
 <script src="http://d3js.org/d3.v3.js"></script>
 <style>
+
 path.link {
+  fill: none;
+  /*stroke: #666;*/
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+circle {
+  /*fill:  #DC143C;*/
+  fill: #3A5FCD;
+ /* fill: #ccc;*/
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+marker-end{
+ /* color: #DC143C;*/
+ color: #8B8386;
+}
+text {
+  /*fill: #000;*/
+  fill: #000080;
+  /*fill: #DC143C;*/
+  font: 10px sans-serif;
+  pointer-events: none;
+  font: 9px helvetica;
+}
+
+
+
+svg {
+  /*background-color:#F5F5F5;*/
+  background-color:#3A5FCD;
+}
+/*path.link {
   fill: none;
   stroke: #666;
   stroke-width: 1.5px;
@@ -17,7 +51,7 @@ text {
   fill: #000;
   font: 10px sans-serif;
   pointer-events: none;
-}
+}*/
 </style>
 <body>
 <script>
@@ -32,8 +66,8 @@ links.forEach(function(link) {
         (nodes[link.target] = {name: link.target});
     link.value = +link.value;
 });
-var width = 5000,
-    height = 5000;
+var width = 4000,
+    height = 4000;
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
@@ -57,6 +91,7 @@ svg.append("svg:defs").selectAll("marker")
     .attr("markerHeight", 6)
     .attr("orient", "auto")
   .append("svg:path")
+  .style("fill", function(d) { return "white"; })
     .attr("d", "M0,-5L10,0L0,5");
 // add the links and the arrows
 var path = svg.append("svg:g").selectAll("path")

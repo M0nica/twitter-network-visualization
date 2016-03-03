@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <script src="http://d3js.org/d3.v3.js"></script>
+
 <style>
 path.link {
   fill: none;
-  stroke: #666;
-  stroke-width: 1.5px;
-}
-circle {
-  fill: #ccc;
+  /*stroke: #666;*/
   stroke: #fff;
   stroke-width: 1.5px;
 }
+circle {
+  fill:  #DC143C;
+ /* fill: #ccc;*/
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+marker-end{
+ /* color: #DC143C;*/
+ color: #8B8386;
+}
 text {
-  fill: #000;
+  /*fill: #000;*/
+  fill: #000080;
   font: 10px sans-serif;
   pointer-events: none;
+  font: 9px helvetica;
+}
+
+
+
+svg {
+  /*background-color:#F5F5F5;*/
+  background-color:#DC143C;
 }
 </style>
 <body>
+<!--<button>Click on this text to look at the next hour's distribution of tweets.</button>-->
+
 <script>
 // get the data
 d3.csv("force_trump.csv", function(error, links) {
@@ -32,7 +51,11 @@ links.forEach(function(link) {
     link.value = +link.value;
 });
 var width = 5000,
-    height = 5000;
+ height = 5000;
+
+
+  // var width = window.innerWidth,
+   // height = window.innerHeight; 
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -42,6 +65,9 @@ var force = d3.layout.force()
     .charge(-300)
     .on("tick", tick)
     .start();
+
+
+   
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -57,7 +83,10 @@ svg.append("svg:defs").selectAll("marker")
     .attr("markerHeight", 6)
     .attr("orient", "auto")
   .append("svg:path")
+   // .style("fill", function(d) { return "red"; })
+  .style("fill", function(d) { return "white"; })
     .attr("d", "M0,-5L10,0L0,5");
+
 // add the links and the arrows
 var path = svg.append("svg:g").selectAll("path")
     .data(force.links())
@@ -100,6 +129,9 @@ function tick() {
 }
 
 });
+
+
+
 </script>
 </body>
 </html>

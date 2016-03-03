@@ -1,4 +1,103 @@
+<!-- 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <style>
+path.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
 
+marker-end{
+  color: red;
+}
+text {
+  fill: #000;
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+</style>
+  <script src="http://d3js.org/d3.v3.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  
+  $("#trump-content").load("/trump.js", function(response, status, xhr) {
+    if (status == "error") {
+      alert(xhr.status + " " + xhr.statusText);
+    }
+  });
+
+  $("#cruz-content").load("/cruz.js", function(response, status, xhr) {
+    if (status == "error") {
+      alert(xhr.status + " " + xhr.statusText);
+    }
+  });
+
+  $("#sanders-content").load("/sanders.js", function(response, status, xhr) {
+    if (status == "error") {
+      alert(xhr.status + " " + xhr.statusText);
+    }
+  });
+
+  $("#clinton-content").load("/clinton.js", function(response, status, xhr) {
+    if (status == "error") {
+      alert(xhr.status + " " + xhr.statusText);
+    }
+  });
+});
+  </script>
+</head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Trump</a></li>
+    <li><a href="#tabs-2">Cruz</a></li>
+    <li><a href="#tabs-3">Sanders</a></li>
+     <li><a href="#tabs-4">Clinton</a></li>
+  </ul>
+
+
+  <div id="tabs-1">
+
+ <h1>Trump</h1>
+<div id ="trump-content"></div>
+  </div>
+  <div id="tabs-2">
+   <h1>Cruz</h1>
+   <div id ="cruz-content"></div>
+  </div>
+  <div id="tabs-3">
+  </h1>Sanders</h1>
+  <div id ="sanders-content"></div>
+  
+  </div>
+
+  <div id="tabs-4">
+  </h1>Clinton</h1>
+  <div id ="clinton-content"></div>
+  
+  </div>
+</div>
+ 
+ 
+</body>
+</html> -->
+
+ 
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
@@ -8,17 +107,28 @@
 .node {
   stroke: #fff;
 }
+img{width: 250px; height: 250px;}
+a{/*text-decoration: none;*/ color: white;}
+
+
+body{
+  background-color: #3A5FCD;
+  color:white;
+}
 </style>
 <body>
+
+	<h2>View a Force-Directed Graph for Each Candidate</h2>
+  <p>By Monica Powell</p>
   <ul>
     <li><a href="/all_nodes.html">All Candidates</a></li>
-<li>  <a href="/trump_network.html">Trump</a></li>
-  <li><a href="/cruz_network.html">Cruz</a></li>
-  <li><a href="/sanders_network.html">Sanders</a></li>
-  <li><a href="/clinton_network.html">Clinton</a></li>
+<li> <a href="/trump_network.html"><img src="trump_network.png">Trump</a></li>
+  <li><a href="/cruz_network.html"><img src="cruz_network.png">Cruz</a></li>
+  <li><a href="/sanders_network.html"><img src="sanders_network.png">Sanders</a></li>
+  <li><a href="/clinton_network.html"><img src="clinton_network.png">Clinton</a></li>
 </ul>
 </body>
-</html>
+</html> 
 <!-- <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 var width = 8000,
